@@ -3,7 +3,9 @@ from django.shortcuts import render
 
 # Create your views here.
 def home(request):
-    return HttpResponse('<h2>witam na stronie glownej</h2>')
+    searchTerm = request.GET.get('searchMovie')
+    return  render(request, 'home.html', {'name':'Ola',
+                                          'searchTerm': searchTerm})
 
 def about(request):
     return HttpResponse('<h1>Strona o mnie</h1>')
