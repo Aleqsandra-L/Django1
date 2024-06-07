@@ -7,12 +7,6 @@
 </head>
 <body>
 <div class="container">
-        <h2>witam na stronie glownej, {{ name }} </h2>
-        <h3>to jest szablon html</h3>
-        <hr>
-        <h2>Wyszukiwanie {{ searchTerm }} </h2>
-</div>
-<div class="container">
         <form action="">
             <div class="mb-3">
                 <label class="form-label">Wyszukaj film:</label>
@@ -20,6 +14,23 @@
             </div>
             <button type="submit" class="btn btn-primary">WYSZUKAJ</button>
         </form>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for movie in movies %}
+            <div class="card">
+            <img class="class-img-top" src="{{ movie.image.url }}">
+
+            <div class="card-body">
+            <h5 class="card-title fw-bold">{{ movie.title }}</h5>
+
+            <p class="card-text">{{ movie.description }}</p>
+                {% if movie.url %}
+                <a href="{{ movie.url" class="btn btn-primary">Movie Link:</a>
+                {% endif %}
+            </div>
+            </div>
+            {% endfor %}
+        </div>
+
 </div>
 
 <div class="container">
